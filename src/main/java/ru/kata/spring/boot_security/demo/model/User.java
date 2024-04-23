@@ -123,6 +123,9 @@ public class User implements UserDetails {
     public Set<Role> getRoles() {
         return roles;
     }
+    public void setRoles(Set<Role> roles) {
+        this.roles = roles;
+    }
 
     public void setRole(Set<Role> roles) {
         this.roles = roles;
@@ -133,15 +136,31 @@ public class User implements UserDetails {
         for (String role : roles) {
             if (role != null) {
                 if (role.equals("ROLE_ADMIN")) {
-                    roleSet.add(new Role(2, role));
+                    roleSet.add(new Role(2L, role));
                 }
                 if (role.equals("ROLE_USER")) {
-                    roleSet.add(new Role(1, role));
+                    roleSet.add(new Role(1L, role));
                 }
             }
         }
         this.roles = roleSet;
     }
+
+
+//    public void setRoles(String[] roles) {
+//        Set<Role> roleSet = new HashSet<>();
+//        for (String role : roles) {
+//            if (role != null) {
+//                if (role.equals("ROLE_ADMIN")) {
+//                    roleSet.add(new Role(2L, role));
+//                }
+//                if (role.equals("ROLE_USER")) {
+//                    roleSet.add(new Role(1L, role));
+//                }
+//            }
+//        }
+//        this.roles = roleSet;
+//    }
 
     @Override
     public boolean equals(Object o) {
